@@ -1,8 +1,18 @@
 'use strict';
 
-const CACHE_NAME = 'v1';
+self.addEventListener('install', function(e) {
+    console.log('sw installed');
 
-self.addEventListener('install', () => {});
-self.addEventListener('activate', () => {});
-self.addEventListener('fetch', () => {});
+    e.waitUntil(
+        //self.skipWaiting()
+    );
+});
 
+self.addEventListener('activate', function(e) {
+    console.log('sw activated');
+    //self.clients.claim();
+});
+
+self.addEventListener('fetch', function(e) {
+    console.log(e.request.url);
+});
